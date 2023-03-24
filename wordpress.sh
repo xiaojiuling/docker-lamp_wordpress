@@ -5,3 +5,4 @@ docker exec lamp-mysql sh /mysql-create.sh
 docker exec lamp-php docker-php-ext-install mysqli
 docker restart lamp-php
 chmod 777 ./lamp/httpd/htdocs
+rm -rf ./latest-zh_CN.tar.gz
