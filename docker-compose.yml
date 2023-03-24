@@ -2,6 +2,7 @@ version: '3'
 services:
   apache: 
     image: httpd:2.4.55-bullseye
+    container_name: lamp-httpd
     ports:
      - 80:80
     volumes:
