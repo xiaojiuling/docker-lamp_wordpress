@@ -1,0 +1,54 @@
+version: '3'
+services:
+  apache: 
+    image: httpd:2.4.55-bullseye
+    ports:
+     - 80:80
+    volumes:
+      - ./lamp/httpd/conf:/usr/local/apache2/conf
+      - ./lamp/httpd/htdocs:/usr/local/apache2/htdocs
+    networks:
+      mywjh:
+        ipv4_address: 10.177.1.2
+
+
+  php:
+    image: php:7.4-fpm
+    container_name: lamp-php
+    ports:
+      - 9000:9000
+    volumes:
+      - ./lamp/httpd/htdocs:/var/www/html
+      - ./lamp/php/etc:/usr/local/etc
+    networks:
+       mywjh:
+        ipv4_address: 10.177.1.3
+
+
+  mysql:
+    build: ./mysql-create
+#    image: mysql:5.7.41
+    ports:
+      - 3306:3306
+    container_name: lamp-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123@abcD
+    volumes:
+      - ./lamp/mysql/data/mysql:/var/lib/mysql
+      - ./lamp/mysql/conf/mysql:/etc/mysql
+      - ./lamp/mysql/log:/var/log
+ #   entrypoint:  sh /mysql-create.sh
+    networks:
+       mywjh:
+        ipv4_address: 10.177.1.4
+
+
+networks:
+    mywjh:
+      ipam:
+        config:
+          - subnet: 10.177.1.0/24
+            
+      
+        
+    
