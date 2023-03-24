@@ -84,6 +84,6 @@ sh wordpress.sh
 |  ----  | ----  |
 | 数据库名称  | wordpress |
 | 用户名  | root |
-| 密码  |   123@abcd|
+| 密码  |   123@abcD|
 | 数据库 | 10.177.1.4 |
 | 表头 |    wp_     |
