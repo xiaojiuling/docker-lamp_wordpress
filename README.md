@@ -1,6 +1,6 @@
 # docker-lamp
-docker
-xyz
+
+```shell
 lamp
 ├── httpd                                       httpd的数据存放目录
 │   ├── conf                                    httpd的配置文件目录
@@ -63,7 +63,7 @@ lamp
             ├── www.conf
             ├── www.conf.default
             └── zz-docker.conf
-
+```
 
 详细介绍了lamp文件后，就可以通过docke-compose编排工具，和wordpress.sh脚本进行WordPress的构建
 使用docker构建lamp平台
